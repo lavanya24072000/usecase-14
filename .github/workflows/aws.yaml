@@ -2,6 +2,7 @@ name: Terraform 14 & 15 usecase
 
 on:
    push:
+   
   # pull_request:
   #   types: [opened, synchronize, reopened]
   # workflow_dispatch:
