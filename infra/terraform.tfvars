@@ -1,5 +1,5 @@
-raw_bucket_name         = "semantic-search-raw-ddd"
-processed_bucket_name   = "semantic-search-processed-ddd"
+raw_bucket_name         = "semantic-search-raw-dddasdsd"
+processed_bucket_name   = "semantic-search-processed-dddsdsad"
 
 name = "demo"
 vpc_cidr             = "10.0.0.0/16"
