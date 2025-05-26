@@ -1,5 +1,5 @@
 raw_bucket_name         = "semantic-search-raw-dddasdsd"
-processed_bucket_name   = "semantic-search-processed-dddsdsad"
+
 
 name = "demo"
 vpc_cidr             = "10.0.0.0/16"
@@ -34,7 +34,7 @@ db_password             = "supersecretpassword"
 db_instance_class       = "db.t3.micro"
 db_secret_name          = "semantic-search-db-credentialss"
 
-lambda_code_bucket      = "lambda-code-bucket-ddd"
+lambda_code_bucket      = "my-cognito-login-page"
 ingest_lambda_key       = "ingest.zip"
 search_lambda_key       = "search.zip"
 
