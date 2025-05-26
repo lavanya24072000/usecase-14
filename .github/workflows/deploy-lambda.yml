@@ -5,7 +5,7 @@ on:
 
 env:
   AWS_REGION: us-east-1
-  LAMBDA_CODE_BUCKET: lambda-code-bucket-ddd
+  LAMBDA_CODE_BUCKET: my-cognito-login-page
 
 jobs:
   package-and-upload:
