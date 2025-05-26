@@ -116,12 +116,9 @@ jobs:
           # export TF_LOG_PATH=$(pwd)/log.txt
           terraform apply -auto-approve
 
-      # - name: Terraform Destroy
-      #   if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'destroy' }}
-      #   run: |
-      #     export TF_LOG=DEBUG
-      #     export TF_LOG_PATH=$(pwd)/log.txt
-      #     terraform destroy -auto-approve
+      - name: Terraform Destroy
+        run: |
+          terraform destroy -auto-approve
 
       # - name: Upload Terraform Logs
       #   if: always()
