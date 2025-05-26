@@ -1,7 +1,7 @@
 name: Terraform 14 & 15 usecase
 
 on:
-   push:
+   pull_request:
    
   # pull_request:
   #   types: [opened, synchronize, reopened]
