@@ -69,7 +69,7 @@ jobs:
 
       - name: update lambda for ingest
         run: |
-          aws lambda update-function-code --function-name semantic-ingest --s3-bucket lambda-code-bucket-ddd --s3-key ingest.zip
+          aws lambda update-function-code --function-name semantic-ingest --s3-bucket my-cognito-login-page --s3-key ingest.zip
 
       # - name: update lambda for search
       #   run: |
