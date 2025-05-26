@@ -1,19 +1,20 @@
 name: Terraform 14 & 15 usecase
 
 on:
+   push:
   # pull_request:
   #   types: [opened, synchronize, reopened]
-  workflow_dispatch:
-    inputs:
-      action:
-        description: 'Terraform action to perform'
-        required: true
-        default: 'plan'
-        type: choice
-        options:
-          - plan
-          - apply
-          - destroy
+  # workflow_dispatch:
+  #   inputs:
+  #     action:
+  #       description: 'Terraform action to perform'
+  #       required: true
+  #       default: 'plan'
+  #       type: choice
+  #       options:
+  #         - plan
+  #         - apply
+  #         - destroy
 
 env:
   AWS_REGION: us-east-1
@@ -42,7 +43,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{ secrets.AWS_OIDC_ROLE_ARN }}
-          aws-region: ${{ env.AWS_REGION }}
+          aws-region: us-east-1
 
       # - name: Generate terraform docs
       #   uses: terraform-docs/gh-actions@main
@@ -102,26 +103,25 @@ jobs:
       #   continue-on-error: true
 
       - name: Terraform Plan
-        if: ${{ github.event_name != 'workflow_dispatch' || github.event.inputs.action == 'plan' }}
+        # if: ${{ github.event_name != 'workflow_dispatch' || github.event.inputs.action == 'plan' }}
         id: plan
         run: |
-          export TF_LOG=DEBUG
-          export TF_LOG_PATH=$(pwd)/log.txt
+          # export TF_LOG=DEBUG
+          # export TF_LOG_PATH=$(pwd)/log.txt
           terraform plan -out=tfplan
 
       - name: Terraform Apply
-        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'apply' }}
         run: |
-          export TF_LOG=DEBUG
-          export TF_LOG_PATH=$(pwd)/log.txt
+          # export TF_LOG=DEBUG
+          # export TF_LOG_PATH=$(pwd)/log.txt
           terraform apply -auto-approve
 
-      - name: Terraform Destroy
-        if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'destroy' }}
-        run: |
-          export TF_LOG=DEBUG
-          export TF_LOG_PATH=$(pwd)/log.txt
-          terraform destroy -auto-approve
+      # - name: Terraform Destroy
+      #   if: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.action == 'destroy' }}
+      #   run: |
+      #     export TF_LOG=DEBUG
+      #     export TF_LOG_PATH=$(pwd)/log.txt
+      #     terraform destroy -auto-approve
 
       # - name: Upload Terraform Logs
       #   if: always()
