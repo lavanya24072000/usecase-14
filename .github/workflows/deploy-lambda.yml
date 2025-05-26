@@ -1,8 +1,7 @@
 name: Build and Upload Lambda ZIP
 
 on:
-  workflow_dispatch:
-
+  push:
 env:
   AWS_REGION: us-east-1
   LAMBDA_CODE_BUCKET: my-cognito-login-page
